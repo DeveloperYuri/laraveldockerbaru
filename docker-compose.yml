@@ -17,10 +17,12 @@ services:
     image: nginx:alpine
     restart: unless-stopped
     ports:
-      - "8080:80"
+      - "80:80"
+      - "4343:4343"
     volumes:
       - ./:/var/www
       - ./docker-compose/nginx:/etc/nginx/conf.d/
+      - /etc/letsencrypt:/etc/letsencrypt:ro
     networks:
       - laravel-network
 
